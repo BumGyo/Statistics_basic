@@ -80,3 +80,52 @@ lower
 upper = phat + error
 upper
 
+# 연습문제 2번
+scores <- c(35, 19, 40, 35, 51, 41, 27, 23, 39, 21, 41, 31, 46, 51, 34, 37, 36, 55, 52, 32)
+
+# 평균 계산
+mean_score <- mean(scores)
+mean_score
+
+# 표준편차 계산
+sd_score <- sd(scores)
+sd_score
+
+# 표준오차 계산
+n <- length(scores)
+SE <- sd_score / sqrt(n)
+SE
+
+# 95% 신뢰구간 계산
+error <- qnorm(0.975) * SE       # 100(1-a) % 오차한계
+error
+
+# 95% 신뢰구간 하한
+lower <- mean_score - error
+lower
+
+# 95% 신뢰구간 상한
+upper <- mean_score + error
+upper
+
+# 연습문제 3번
+total_population <- 2000
+unemployed <- 165
+
+# 실업률 계산
+unemployment_rate <- unemployed / total_population
+
+# 표준오차 계산
+standard_error <- sqrt(unemployment_rate * (1 - unemployment_rate) / total_population)
+
+# 95% 신뢰구간 계산
+z_value <- 1.96 # 95% 신뢰수준에서의 z 값
+margin_of_error <- z_value * standard_error
+confidence_interval_lower <- unemployment_rate - margin_of_error
+confidence_interval_upper <- unemployment_rate + margin_of_error
+
+# 결과 출력
+cat("실업률:", unemployment_rate, "\n")
+cat("표준오차:", standard_error, "\n")
+cat("95% 신뢰구간:", confidence_interval_lower, "-", confidence_interval_upper, "\n")
+cat("95% 오차한계:", margin_of_error, "\n")
