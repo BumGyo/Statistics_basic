@@ -76,7 +76,7 @@ n = length(x)
 SE = s / sqrt(n)
 SE
 
-error = qt(0.975, n-1) * SE
+error = qnorm(0.975) * SE
 error
 
 LCL = xbar - error		# 하한
