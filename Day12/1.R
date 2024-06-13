@@ -75,3 +75,6 @@ pval
 
 L = (phat1-phat2)-zalpha*sqrt((phat1*(1-phat1)/n1)+(phat2*(1-phat2)/n2))
 U = (phat1-phat2)+zalpha*sqrt((phat1*(1-phat1)/n1)+(phat2*(1-phat2)/n2))
+
+prop.test(x=c(21, 38), n=c(100, 100), correct=F, conf.level=0.99)              # 양측검증
+prop.test(x=c(21, 38), n=c(100, 100), correct=F, alt="less", conf.level=0.99)  
